@@ -3,10 +3,10 @@
 <body>
     <div class='top-container'>
         <h1>{{message}}</h1>
-       
+
     </div>
     <div class='container'>
-        <table id="table">
+        <table id='table'>
             <tr>
                 <th>id</th>
                 <th>title</th>
@@ -18,19 +18,26 @@
                 <tr>
                     <td>{{this.id}}</td>
                     <td>{{this.title}}</td><td>{{this.assignee}}</td>
-                    <td>{{this.done}}</td>
+                    <td>{{this.done}} </td>
+
                 </tr>
+               
             {{/each}}
         </table>
 
     </div>
-    <div class="input-container">
-         <form id="myForm">
-                <input type="checkbox" id="done" name="done" >
-        <input type="text" id="title" name="title" placeholder="Title">
-        <input type="text" id="assignee" name="assignee" placeholder="Assignee">
-         <input type="submit" id="submit" value="Submit">
-         </form>
-        
+    <div class='input-container' >
+        <form id='myForm' action= "/insert_data" method='POST'>
+            <input type='checkbox' id='done' name='done' />
+            <input type='text' id='title' name='title' placeholder='Title' />
+            <input
+                type='text'
+                id='assignee'
+                name='assignee'
+                placeholder='Assignee'
+            />
+            <input type='submit' id='submit' value='Submit' />
+        </form>
+
     </div>
 </body>

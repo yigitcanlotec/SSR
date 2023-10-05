@@ -39,28 +39,25 @@ td {
     width: 640px;
 }
 
-
-
-.input-container{
+.input-container {
     background-color: #43b1cc;
     width: 640px;
-   
 }
 
-.input-container > #myForm{
+.input-container > #myForm {
     height: 100%;
     display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
 }
-.input-container > #myForm >  #title{
+.input-container > #myForm > #title {
     width: 350px;
-    
 }
 
-.input-container > #myForm > *{
+.input-container > #myForm > * {
     height: 20px;
+    margin-left: 5px;
 }
 
 h1 {

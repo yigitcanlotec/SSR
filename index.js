@@ -8,14 +8,14 @@ const client = require('./db');
 const PORT = 3000;
 const app = express();
 
-app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 app.engine('handlebars', engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname + '/public')));
 
 app.get('/', async (req, res) => {
-    const text = 'SELECT * FROM todo';
-    const data = (await client.query(text)).rows;
+    const queryString = 'SELECT * FROM todo';
+    const data = (await client.query(queryString)).rows;
 
     res.render('home', {
         message: 'Challenge 2',
@@ -27,16 +27,16 @@ app.get('/', async (req, res) => {
     });
 });
 
-app.post('/submit', (req,res)=>{
-  const formData = req.body; // Form data sent from the client
+app.post('/insert_data', async (req, res) => {
+    const formData = req.body; // Form data sent from the client
+    console.log(formData);
+    
+    const queryString = `INSERT INTO todo (title, assignee, done) values ('${formData.title}', '${formData.assignee}', ${formData.done === undefined ? false : true});`;
 
-  // Process the form data
-  console.log('Received form data:', formData);
+    await client.query(queryString);
 
-  // Send a response back to the client
-  res.json({ message: 'Data received successfully!' });
+    res.redirect('/');
 });
-
 
 app.listen(PORT, () => {
     console.log('Server is listening on port 3000');
