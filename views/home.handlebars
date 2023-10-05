@@ -1,16 +1,36 @@
 <!-- views/home.handlebars -->
 
-
 <body>
-    <div class="top-container">
+    <div class='top-container'>
         <h1>{{message}}</h1>
-        <!-- Other content here -->
+       
     </div>
-    <div class="container">
-<ul>
-  {{#each tasks}}
-    <li>{{this}}</li>
-  {{/each}}
-</ul>
+    <div class='container'>
+        <table id="table">
+            <tr>
+                <th>id</th>
+                <th>title</th>
+                <th>assignee</th>
+                <th>done</th>
+            </tr>
+
+            {{#each data}}
+                <tr>
+                    <td>{{this.id}}</td>
+                    <td>{{this.title}}</td><td>{{this.assignee}}</td>
+                    <td>{{this.done}}</td>
+                </tr>
+            {{/each}}
+        </table>
+
+    </div>
+    <div class="input-container">
+         <form id="myForm">
+                <input type="checkbox" id="done" name="done" >
+        <input type="text" id="title" name="title" placeholder="Title">
+        <input type="text" id="assignee" name="assignee" placeholder="Assignee">
+         <input type="submit" id="submit" value="Submit">
+         </form>
+        
     </div>
 </body>
