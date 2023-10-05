@@ -1,0 +1,16 @@
+<!-- views/home.handlebars -->
+
+
+<body>
+    <div class="top-container">
+        <h1>{{message}}</h1>
+        <!-- Other content here -->
+    </div>
+    <div class="container">
+<ul>
+  {{#each tasks}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>
+    </div>
+</body>
