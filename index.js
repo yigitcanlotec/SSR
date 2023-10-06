@@ -28,6 +28,17 @@ app.get('/', async (req, res) => {
     });
 });
 
+
+
+app.post('/', async (req, res) => {
+    const formData = req.body;
+    const queryString = `INSERT INTO todo (title, assignee, done) values ('${formData.title}', '${formData.assignee}', ${formData.done === undefined ? false : true});`;
+    await client.query(queryString);
+    res.redirect('/');
+});
+
+
+
 app.get('/user/:userId', async (req, res) => {
     const queryString = `SELECT * FROM todo WHERE (id = ${req.params.userId});`;
     const data = (await client.query(queryString)).rows;
@@ -37,24 +48,9 @@ app.get('/user/:userId', async (req, res) => {
 });
 
 
-app.post('/', async (req, res) => {
-    const formData = req.body; // Form data sent from the client
-    console.log(formData);
-    
-    const queryString = `INSERT INTO todo (title, assignee, done) values ('${formData.title}', '${formData.assignee}', ${formData.done === undefined ? false : true});`;
-
-    await client.query(queryString);
-
-    res.redirect('/');
-   
-});
-
-
 app.post('/delete', async (req,res)=>{
     const queryString = `DELETE FROM todo WHERE (id = ${req.body.silText})`;
     await client.query(queryString);
-
-
     res.redirect('/');
 });
 
