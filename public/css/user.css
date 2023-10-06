@@ -1,4 +1,4 @@
-body{
+body {
     background-color: white;
     width: 100vw;
     height: 100vh;
@@ -6,7 +6,7 @@ body{
     margin: 0;
 }
 
-.container{
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,8 +14,7 @@ body{
     height: 100%;
 }
 
-.main-container{
-   
+.main-container {
     width: 640px;
     height: 350px;
     background-color: rgb(143, 139, 139);
@@ -26,9 +25,8 @@ body{
     flex-direction: column;
 }
 
-
-
-.edit, .back{
+.edit,
+.back {
     display: inline-block;
     padding: 10px 20px;
     background-color: #2d692f;

@@ -13,6 +13,25 @@ body {
     overflow: hidden;
 }
 
+.filter {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    left: 10px;
+    top: 10px;
+    background-color: white;
+}
+
+.filter > form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .top-container {
     display: flex;
     justify-content: center;
@@ -24,7 +43,7 @@ body {
 }
 
 .container {
-    height: 100vh;
+    height: 100%;
     width: 640px;
     background-color: #ffffff;
     overflow: auto;
@@ -37,7 +56,6 @@ td {
     border: 1px solid black;
     border-collapse: collapse;
     width: 625px;
-    
 }
 
 .input-container {
@@ -61,18 +79,17 @@ td {
     margin-left: 5px;
 }
 
-#form-table-data{
+#form-table-data {
     display: flex;
     flex-wrap: wrap;
     max-width: 80px;
     gap: 5px;
 }
 
-
-.edit{
+.edit {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #4caf50;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -82,8 +99,6 @@ td {
     border-radius: 5px;
     cursor: pointer;
 }
-
-
 
 h1 {
     color: #ffffff;

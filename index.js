@@ -3,8 +3,6 @@ const { engine } = require('express-handlebars');
 const path = require('path');
 const client = require('./db');
 
-
-
 const PORT = 3000;
 const app = express();
 
@@ -14,21 +12,25 @@ app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname + '/public')));
 
 app.get('/', async (req, res) => {
-    const queryString = 'SELECT * FROM todo ORDER BY id ASC';
-    const data = (await client.query(queryString)).rows;
+    let queryString;
+    let data;
+   if (req.query.filter === undefined ||req.query.done==="all"){
+        queryString = 'SELECT * FROM todo ORDER BY id ASC;';
+        data = (await client.query(queryString)).rows;
+   }else{
+        queryString = `SELECT * FROM todo WHERE (done=${req.query.done}) ORDER BY id ASC;`;
+        data = (await client.query(queryString)).rows;
+   }
 
-    res.render('home', {
-        message: 'Challenge 2',
-        data: data,
-       
+   res.render('home', {
+    message: 'Challenge 2',
+    data: data,
     });
 });
 
 app.get('/user/:userId', async (req, res) => {
     const queryString = `SELECT * FROM todo WHERE (id = ${req.params.userId});`;
     const data = (await client.query(queryString)).rows;
-   
-   
     res.render('user', {
         data: data,
     });
