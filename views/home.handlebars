@@ -1,5 +1,5 @@
 <!-- views/home.handlebars -->
-
+ <link rel='stylesheet' href='css/home.css' />
 <body>
     <div class='top-container'>
         <h1>{{message}}</h1>
@@ -16,10 +16,23 @@
 
             {{#each data}}
                 <tr>
-                    <td>{{this.id}}</td>
-                    <td>{{this.title}}</td><td>{{this.assignee}}</td>
-                    <td>{{this.done}} </td>
+                    <td id=td-id-{{this.id}}><span>{{this.id}}</span></td>
+                    <td id=td-title-{{this.id}}><span>{{this.title}}</span></td>
+                    <td id=td-assignee-{{this.id}}><span>{{this.assignee}}</span></td>
+                    <td id=td-done-{{this.id}}><span>{{this.done}}</span></td>
+                    <td id=form-table-data-{{this.id}}> 
+                       
+                         <form id=deleteForm-{{this.id}} action="/delete" method='POST' style="display:block; flex-flow:row wrap">
+                            <input type="submit" name="sil" id=sil-{{this.id}} value="Sil"> 
+                            <input type="text" name="silText" id="silText" value="{{this.id}}" style="display: none;">
+                        </form>
 
+                        
+
+                            {{!-- <input type="button" name="edit" id=edit-{{this.id}} value="Edit" onclick="editTaskData(this.id)"> --}}
+                            <a href="/user/{{this.id}}" class="edit">Edit</a>
+                      
+                    </td>
                 </tr>
                
             {{/each}}
@@ -27,7 +40,7 @@
 
     </div>
     <div class='input-container' >
-        <form id='myForm' action= "/insert_data" method='POST'>
+        <form id='inputForm' action= "/" method='POST'>
             <input type='checkbox' id='done' name='done' />
             <input type='text' id='title' name='title' placeholder='Title' />
             <input

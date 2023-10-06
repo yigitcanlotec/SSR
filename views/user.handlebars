@@ -1,0 +1,45 @@
+<link rel='stylesheet' href='../css/user.css' />
+
+<body>
+    {{!-- <h1>{{message}}</h1> --}}
+    {{!-- {{#each data}}
+        <p>{{this.id}}</p>
+        <p>{{this.title}}</p>
+        <p>{{this.assignee}}</p>
+        <p>{{this.done}}</p>
+    {{/each}} --}}
+
+    <div class="container">
+        <div class="main-container">
+            {{#each data}}
+            <form id="update" action="/update" method='POST'>
+                     <input type="text" name="oldId" id="oldId" value={{this.id}} style="display: none;">
+                        <input type="text" name="id" id="id" value={{this.id}}>
+                        <input type="text" name="title" id="title" value={{this.title}}>
+                        <input type="text" name="assignee" id="assignee" value={{this.assignee}}>
+                          <select name="done" id="done">
+                            {{#if this.done}}
+                                 <option value="true" selected>true</option>
+                                 <option value="false">false</option>
+                            {{else}}
+                                  <option value="true" >true</option>
+                                 <option value="false" selected >false</option>
+                            {{/if}}
+
+                           
+                            </select>
+
+                            <input type="submit" name="submit" id="submit" value="Edit"> 
+                             <a href="/" class="back">Geri</a>
+                        </form>
+
+                
+              
+         
+              
+               
+            
+              {{/each}}
+        </div>
+    </div>
+</body>

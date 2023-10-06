@@ -36,7 +36,8 @@ td {
     font-size: large;
     border: 1px solid black;
     border-collapse: collapse;
-    width: 640px;
+    width: 625px;
+    
 }
 
 .input-container {
@@ -44,21 +45,45 @@ td {
     width: 640px;
 }
 
-.input-container > #myForm {
+.input-container > #inputForm {
     height: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-content: center;
 }
-.input-container > #myForm > #title {
+.input-container > #inputForm > #title {
     width: 350px;
 }
 
-.input-container > #myForm > * {
+.input-container > #inputForm > * {
     height: 20px;
     margin-left: 5px;
 }
+
+#form-table-data{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 80px;
+    gap: 5px;
+}
+
+
+.edit{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
 
 h1 {
     color: #ffffff;
